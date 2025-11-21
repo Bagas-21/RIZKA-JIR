@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Surat Buat Kamu 💜</title>
+
+<style>
+/* ====== Lilac Super Clean Gradient ====== */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(145deg, #f4e9ff, #e7d6ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ====== Global Page Container ====== */
+.page {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 26px;
+  box-shadow: 0 8px 30px rgba(140, 90, 200, 0.2);
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+/* ====== Tombol Buka Surat ====== */
+.button-open {
+  margin-top: 25px;
+  padding: 14px 32px;
+  background: #b78bff;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(183,139,255,0.4);
+}
+
+.button-open:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(183,139,255,0.7);
+}
+
+.button-open:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px rgba(183,139,255,0.9);
+}
+
+/* ====== Animasi Fade ====== */
+.fade-out {
+  animation: fadeOut 0.6s forwards;
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; transform: scale(1.03); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; }
+}
+
+/* ====== Surat Box ====== */
+.surat {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  background: white;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 4px 18px rgba(120,60,200,0.15);
+  animation: softFloat 3s infinite ease-in-out;
+}
+
+@keyframes softFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ====== Halaman 1 ====== -->
+<div id="page1" class="page">
+  <h2>Heyy kamu yang habis presentasi ✨</h2>
+  <p>Aku tau kamu udah berjuang keras banget hari ini.<br>
+  Istirahat dulu bentar ya, kamu hebat banget 🤍</p>
+
+  <button id="openLetter" class="button-open">Buka Suratnya 💌</button>
+</div>
+
+<!-- ====== Halaman Surat ====== -->
+<div id="page2" class="page" style="display:none;">
+  <div class="surat">
+    <p>
+      cieee yang habis presentasiii 🤭💜<br><br>
+      Aku bangga banget sama kamu.  
+      Kamu udah ngeluarin versi terbaikmu hari ini.  
+      Terima kasih udah berusaha segini hebatnya ya.<br><br>
+      Istirahat yaa, minum air, tarik napas pelan…  
+      kamu layak banget buat dipuji hari ini ✨
+
+      bangga banget jirrr guwah punya crush kek lu 💐<br>
+    proud of you crushhhhhhh #ANJAY
+    </p>
+  </div>
+</div>
+
+<!-- ====== Musik (Mulai Setelah Klik) ====== -->
+<audio id="bgm" loop>
+    <source src="Malibu Nights - LANY Piano Cover by Gerard Chua.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const btn = document.getElementById("openLetter");
+const p1 = document.getElementById("page1");
+const p2 = document.getElementById("page2");
+const audio = document.getElementById("bgm");
+
+btn.addEventListener("click", () => {
+  p1.classList.add("fade-out");
+
+  setTimeout(() => {
+    p1.style.display = "none";
+    p2.style.display = "block";
+    p2.classList.add("fade-in");
+
+    // Mulai lagu dari awal saat tombol diklik
+    audio.currentTime = 0;
+    audio.play();
+  }, 600);
+});
+</script>
+
+</body>
+</html>
